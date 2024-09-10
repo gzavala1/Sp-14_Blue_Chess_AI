@@ -16,9 +16,9 @@ from multiprocessing import Process, Queue
 # Initialize the mixer
 p.mixer.init()
 # Load sound files
-move_sound = p.mixer.Sound("../sounds/move-sound.mp3")
-capture_sound = p.mixer.Sound("../sounds/capture.mp3")
-promote_sound = p.mixer.Sound("../sounds/promote.mp3")
+move_sound = p.mixer.Sound("sounds/move-sound.mp3")
+capture_sound = p.mixer.Sound("sounds/capture.mp3")
+promote_sound = p.mixer.Sound("sounds/promote.mp3")
 
 BOARD_WIDTH = BOARD_HEIGHT = 512
 MOVE_LOG_PANEL_WIDTH = 250
@@ -73,7 +73,7 @@ def loadImages():
     pieces = ['bR', 'bN', 'bB', 'bQ', 'bK',
               'bp', 'wR', 'wN', 'wB', 'wQ', 'wK', 'wp']
     for piece in pieces:
-        image_path = "../images1/" + piece + ".png"
+        image_path = "images1/" + piece + ".png"
         original_image = p.image.load(image_path)
         # p.transform.smoothscale is bit slower than p.transform.scale, using this to reduce pixelation and better visual quality for scaling images to larger sizes
         IMAGES[piece] = p.transform.smoothscale(
@@ -96,22 +96,22 @@ def pawnPromotionPopup(screen, gs):
     if gs.whiteToMove:
         button_images = [
             p.transform.smoothscale(p.image.load(
-                "../images1/bQ.png"), (100, 100)),
+                "images1/bQ.png"), (100, 100)),
             p.transform.smoothscale(p.image.load(
-                "../images1/bR.png"), (100, 100)),
+                "images1/bR.png"), (100, 100)),
             p.transform.smoothscale(p.image.load(
-                "../images1/bB.png"), (100, 100)),
-            p.transform.smoothscale(p.image.load("../images1/bN.png"), (100, 100))
+                "images1/bB.png"), (100, 100)),
+            p.transform.smoothscale(p.image.load("images1/bN.png"), (100, 100))
         ]
     else:
         button_images = [
             p.transform.smoothscale(p.image.load(
-                "../images1/wQ.png"), (100, 100)),
+                "images1/wQ.png"), (100, 100)),
             p.transform.smoothscale(p.image.load(
-                "../images1/wR.png"), (100, 100)),
+                "images1/wR.png"), (100, 100)),
             p.transform.smoothscale(p.image.load(
-                "../images1/wB.png"), (100, 100)),
-            p.transform.smoothscale(p.image.load("../images1/wN.png"), (100, 100))
+                "images1/wB.png"), (100, 100)),
+            p.transform.smoothscale(p.image.load("images1/wN.png"), (100, 100))
         ]
 
     while True:
