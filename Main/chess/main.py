@@ -39,7 +39,7 @@ IMAGES = {}
 '''
 
 SET_WHITE_AS_BOT = False
-SET_BLACK_AS_BOT = True
+SET_BLACK_AS_BOT = False
 
 # Define colors
 
